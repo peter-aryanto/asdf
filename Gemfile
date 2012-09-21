@@ -1,38 +1,65 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
+gem 'jquery-rails'
+gem 'jquery_datepicker'
+gem 'coffee-rails', '~> 3.2.1'
+gem 'heroku'
+gem 'validates_timeliness', '~> 3.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
+# #CAS OAUTH gems
+# gem 'devise'
+# gem 'omniauth-cas'
 
-gem 'sqlite3'
 
+#form, display, pagination
+gem 'simple_form'
+gem 'formtastic'
+gem "haml"
+gem "haml-rails"
+gem "twitter-bootstrap-rails"
+gem 'kaminari'
+
+#for image upload and processing
+gem 'mini_magick'
+gem 'carrierwave'
+gem "nested_form", :git => 'git://github.com/ryanb/nested_form.git'
+gem "fog", "~> 1.3.1"
+
+#automatic email notification
+gem "mail"
 
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
+  
   gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
+  
   gem 'uglifier', '>= 1.0.3'
+  # gem "less-rails"
+  gem "therubyracer"
 end
 
-gem 'jquery-rails'
+group :production, :staging do
+  gem 'pg'
+  gem 'thin'
+  gem 'rufus-scheduler'
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :development, :test do
+  gem 'pg'
+  gem 'rspec-rails'
+  gem 'timecop'
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+group :test do
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'simplecov'
+  gem 'capybara'
+  gem 'awesome_print'
+  gem 'machinist'
+  gem 'faker'
+  gem 'blueprints'
+end

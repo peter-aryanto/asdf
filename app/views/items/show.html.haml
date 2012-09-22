@@ -1,0 +1,24 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @item.title
+%p
+  %b Region:
+  = @item.region
+%p
+  %b Price:
+  = @item.price
+%p
+  %b Date1:
+  = @item.date1
+%p
+  %b Date2:
+  = @item.date2
+%p
+  %b Desc:
+  = @item.desc
+
+= link_to 'Edit', edit_item_path(@item)
+\|
+= link_to 'Back', items_path

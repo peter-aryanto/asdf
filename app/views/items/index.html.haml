@@ -1,0 +1,29 @@
+%h1 Listing items
+
+%table
+  %tr
+    %th Title
+    %th Region
+    %th Price
+    %th Date1
+    %th Date2
+    %th Desc
+    %th
+    %th
+    %th
+
+  - @items.each do |item|
+    %tr
+      %td= item.title
+      %td= item.region
+      %td= item.price
+      %td= item.date1
+      %td= item.date2
+      %td= item.desc
+      %td= link_to 'Show', item
+      %td= link_to 'Edit', edit_item_path(item)
+      %td= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Item', new_item_path
